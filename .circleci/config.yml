@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
   bundle-fastlane:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/ruby@1.2.0
     steps:
       - checkout
       - run:
