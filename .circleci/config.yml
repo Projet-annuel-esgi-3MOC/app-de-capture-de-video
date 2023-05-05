@@ -2,8 +2,8 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-orbs:
-  ruby: circleci/ruby@3.1.0
+# orbs:
+#   ruby: circleci/ruby@3.1.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
@@ -22,11 +22,9 @@ jobs:
           command: "echo Hello, World!"
   bundle-fastlane:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/ruby:3.2.2
     steps:
       - checkout
-      - ruby/install:
-          version: '2.7'
       - run:
           name: "Bundle fastlane"
           command: "bundle install"
