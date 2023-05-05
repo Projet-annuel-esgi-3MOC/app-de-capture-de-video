@@ -26,6 +26,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Make gradlew executable"
+          command: "chmod +x gradlew"
+      - run:
           name: "Bundle fastlane"
           command: "bundle install"
       - run:
