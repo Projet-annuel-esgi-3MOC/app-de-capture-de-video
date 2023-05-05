@@ -28,6 +28,9 @@ jobs:
       - run:
           name: "Bundle fastlane"
           command: "bundle install"
+      - run:
+          name: "Run tests"
+          command: "fastlane tests"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
