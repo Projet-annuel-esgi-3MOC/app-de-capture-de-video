@@ -23,8 +23,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "Bundle fastlane"
-        command: "bundle install"
+          name: "Bundle fastlane"
+          command: "bundle install"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
