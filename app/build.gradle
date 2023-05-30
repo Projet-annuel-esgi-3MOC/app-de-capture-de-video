@@ -3,11 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-//allprojects {
-//    repositories {
-//        maven { url 'https://jitpack.io' }
-//    }
-//}
 
 android {
     namespace 'com.esgi.students.camerax'
@@ -60,7 +55,7 @@ dependencies {
     implementation "androidx.camera:camera-view:${camerax_version}"
     implementation "androidx.camera:camera-extensions:${camerax_version}"
 
-    //implementation 'com.github.alexeyvasilyev:rtsp-client-android:2.0.8'
+    implementation 'com.github.alexeyvasilyev:rtsp-client-android:2.0.8'
 
 
 }
