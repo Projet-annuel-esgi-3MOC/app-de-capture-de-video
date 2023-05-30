@@ -40,7 +40,7 @@ private const val RTSP_REQUEST_KEY = "rtsp_request"
 private const val RTSP_USERNAME_KEY = "rtsp_username"
 private const val RTSP_PASSWORD_KEY = "rtsp_password"
 
-private const val DEFAULT_RTSP_REQUEST = "rtsp://192.168.1.6:554/axis-media/media.amp"
+private const val DEFAULT_RTSP_REQUEST = "rtsp://192.168.1.6:8554/cam"
 private const val DEFAULT_RTSP_USERNAME = ""
 private const val DEFAULT_RTSP_PASSWORD = ""
 
@@ -189,7 +189,6 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
@@ -209,10 +208,7 @@ class MainActivity : AppCompatActivity() {
                     FallbackStrategy.higherQualityOrLowerThan(Quality.SD)))
                 .build()
 
-
             videoCapture = VideoCapture.withOutput(recorder)
-
-
 
             imageCapture = ImageCapture.Builder()
                             .build()
@@ -240,12 +236,10 @@ class MainActivity : AppCompatActivity() {
                 Log.e(TAG, "Use case binding failed", exc)
             }
 
-
         }, ContextCompat.getMainExecutor(this))
     }
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(
-            baseContext, it) == PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onDestroy() {
@@ -254,8 +248,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(
-        requestCode: Int, permissions: Array<String>, grantResults:
-        IntArray) {
+        requestCode: Int, permissions: Array<String>, grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (allPermissionsGranted()) {
