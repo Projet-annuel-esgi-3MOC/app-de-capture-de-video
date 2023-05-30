@@ -36,6 +36,15 @@ import java.util.Locale
 
 typealias LumaListener = (luma: Double) -> Unit
 
+private const val RTSP_REQUEST_KEY = "rtsp_request"
+private const val RTSP_USERNAME_KEY = "rtsp_username"
+private const val RTSP_PASSWORD_KEY = "rtsp_password"
+
+private const val DEFAULT_RTSP_REQUEST = "rtsp://192.168.1.6:554/axis-media/media.amp"
+private const val DEFAULT_RTSP_USERNAME = ""
+private const val DEFAULT_RTSP_PASSWORD = ""
+
+private const val LIVE_PARAMS_FILENAME = "live_params"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMainBinding
