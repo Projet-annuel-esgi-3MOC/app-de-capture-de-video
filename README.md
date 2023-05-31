@@ -15,3 +15,5 @@ Commandes utiles
 * `ffmpeg -hide_banner -f avfoundation -framerate 30 -i "0" -pix_fmt yuv420p -c:v libx264 -preset ultrafast -b:v 600k -f rtsp rtsp://localhost:8554/cam` 
 Pour streamer. Il faut utiliser le serveur local, avec docker il faut surement remplacer localhost.
 * `vlc --network-caching=50 rtsp://localhost:8554/mystream` pour voir le stream 
+
+Cela semble marcher https://github.com/ar-android/libstreaming 
