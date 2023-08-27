@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
 //        }
 
         homeViewModel.recipes.observe(viewLifecycleOwner) { recipes ->
-            adapter.submitList(recipes)
+            adapter.submitList(recipes);
         }
 
         val itemCount = minOf(2, adapter.itemCount) // Maximum 3 items
