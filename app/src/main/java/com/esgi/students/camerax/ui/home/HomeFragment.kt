@@ -26,7 +26,6 @@ class HomeFragment : Fragment() {
 
     private val recipesList: ArrayList<Recipe> = ArrayList()
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
