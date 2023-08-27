@@ -18,6 +18,10 @@ class HomeViewModel() : ViewModel() {
     private val _recipes = MutableLiveData<List<Recipe>>()
     val recipes: LiveData<List<Recipe>> = _recipes
 
+    init {
+        fetchRecipes()
+    }
+
     fun fetchRecipes() {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -26,7 +30,6 @@ class HomeViewModel() : ViewModel() {
         val httpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
-
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://intermediaire-node.onrender.com")
@@ -37,13 +40,12 @@ class HomeViewModel() : ViewModel() {
         val apiService = retrofit.create(ApiService::class.java)
 
         viewModelScope.launch() {
-
             try {
                 Log.d("toto", "start retrofit")
                 val response = apiService.getRecipes()
                 Log.d("toto", "response $response")
 
-                _recipes.value = response
+                _recipes.postValue(response)
             } catch (e: Exception) {
                 Log.e("toto", "$e")
             }
