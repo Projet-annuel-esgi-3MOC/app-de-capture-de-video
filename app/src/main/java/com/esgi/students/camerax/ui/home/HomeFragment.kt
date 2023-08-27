@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley
 import com.esgi.students.camerax.R
 import com.esgi.students.camerax.bo.Recipe
 import com.esgi.students.camerax.databinding.FragmentHomeBinding
+import com.esgi.students.camerax.ui._adapters.ChallengesAdapter
 import com.esgi.students.camerax.ui._adapters.RecipeAdapter
 import org.json.JSONException
 
@@ -41,7 +42,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
         val recipesRecyclerView: RecyclerView = binding.recipesList
         recipesRecyclerView.layoutManager = LinearLayoutManager(activity)
 
@@ -66,6 +66,18 @@ class HomeFragment : Fragment() {
         // Set the calculated height to the RecyclerView
         recipesRecyclerView.layoutParams.height = totalHeight
         recipesRecyclerView.requestLayout()
+
+        val challengesRecyclerView = binding.trainingList
+        challengesRecyclerView.layoutManager = LinearLayoutManager(
+            activity, LinearLayoutManager.HORIZONTAL, false
+        )
+
+        val challengesAdapter = ChallengesAdapter()
+        challengesRecyclerView.adapter = challengesAdapter
+
+        homeViewModel.challenges.observe(viewLifecycleOwner) { challenges ->
+            challengesAdapter.submitList(challenges)
+        }
 
         return root
     }
