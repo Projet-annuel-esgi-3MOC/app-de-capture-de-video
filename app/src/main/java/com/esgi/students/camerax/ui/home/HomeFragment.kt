@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
             adapter.submitList(recipes)
         }
 
-        val itemCount = minOf(3, adapter.itemCount) // Maximum 3 items
+        val itemCount = minOf(2, adapter.itemCount) // Maximum 3 items
         val firstVisibleView = recipesRecyclerView.getChildAt(0)
         val itemHeight = firstVisibleView?.height ?: 0 // Height of the first visible item
 

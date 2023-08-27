@@ -31,7 +31,7 @@ class RecipeAdapter() :
     inner class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(recipe: Recipe) {
             val imageView = itemView.findViewById<ImageView>(R.id.image)
-            itemView.findViewById<TextView>(R.id.text).text = recipe.description
+            itemView.findViewById<TextView>(R.id.text).text = recipe.name
 
             Glide.with(imageView)
                 .load(recipe.image.accessUrl)
