@@ -3,19 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/recipeFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.esgi.students.camerax.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
-    <!--fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.esgi.students.camerax.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" /-->
 
     <fragment
         android:id="@+id/navigation_camera"
@@ -28,9 +22,12 @@
         android:name="com.esgi.students.camerax.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <fragment
-        android:id="@+id/recipeFragment"
-        android:name="com.esgi.students.camerax.RecipeFragment"
-        android:label="fragment_recipes_list"
-        tools:layout="@layout/fragment_recipes_list" />
+
+
+    <!--fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.esgi.students.camerax.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" /-->
+
 </navigation>
