@@ -28,8 +28,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
+import com.esgi.students.camerax.MainActivity
 import com.esgi.students.camerax.R
 import com.esgi.students.camerax.databinding.FragmentCameraBinding
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.ExecutorService
@@ -111,8 +113,12 @@ class CameraFragment : Fragment() {
 
         // Display the value using a Toast
         Toast.makeText(requireContext(), "Challenge ID: $challengeId", Toast.LENGTH_SHORT).show()
-    }
 
+        val globalViewModel = (requireActivity() as MainActivity).globalViewModel
+        Snackbar.make(requireView(), globalViewModel.participation.value?.ipAddress.toString(), Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(requireView(), globalViewModel.participation.value?.steps?.last()?.recipeStep?.content.toString(), Snackbar.LENGTH_SHORT).show()
+
+    }
 
     private fun takePhoto() {
         // Get a stable reference of the modifiable image capture use case

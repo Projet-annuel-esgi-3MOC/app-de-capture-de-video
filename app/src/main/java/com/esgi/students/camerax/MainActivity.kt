@@ -11,6 +11,7 @@ import androidx.core.animation.doOnEnd
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.esgi.students.camerax.databinding.ActivityMain2Binding
+import com.esgi.students.camerax.services.GlobalViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -18,9 +19,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMain2Binding
 
+    val globalViewModel: GlobalViewModel by lazy {
+        GlobalViewModel(this.application)
+    }
+
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)

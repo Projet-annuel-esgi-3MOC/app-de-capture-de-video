@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.esgi.students.camerax.MainActivity
 import com.esgi.students.camerax.R
 import com.esgi.students.camerax.bo.Challenge
 import com.esgi.students.camerax.bo.Participation
@@ -18,6 +19,7 @@ import com.esgi.students.camerax.databinding.FragmentHomeBinding
 import com.esgi.students.camerax.services.BusinessResponse
 import com.esgi.students.camerax.services.RetrofitInstance
 import com.esgi.students.camerax.ui.camera.CameraFragmentArgs
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -87,10 +89,17 @@ class HomeFragment : Fragment() {
 
                 Log.i("toto", "create res $res");
 
-                val action = HomeFragmentDirections.actionNavigationHomeToNavigationCamera(
-                    challengeId = challenge._id
-                )
-                findNavController().navigate(action)
+                if(res.ok) {
+                    val globalViewModel = (requireActivity() as MainActivity).globalViewModel
+                    globalViewModel.setParticipation(res.payload)
+
+                    val action = HomeFragmentDirections.actionNavigationHomeToNavigationCamera(
+                        challengeId = challenge._id
+                    )
+                    findNavController().navigate(action)
+                } else {
+                    Snackbar.make(requireView(), res.status, Snackbar.LENGTH_SHORT).show()
+                }
             }
 
         }
