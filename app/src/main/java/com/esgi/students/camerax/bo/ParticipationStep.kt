@@ -5,6 +5,6 @@ class ParticipationStep(
     var comment: String = "",
     var rating: String = "",
     var doneIn: Int = -1,
-    var recipeStep: List<RecipeStep> = emptyList(),
+    var recipeStep: RecipeStep = RecipeStep(),
 ) {
 }
