@@ -172,7 +172,10 @@ class CameraFragment : Fragment() {
         }
 
         val mediaStoreOutputOptions = MediaStoreOutputOptions
-            .Builder(requireActivity().contentResolver, MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+            .Builder(
+                requireActivity().contentResolver,
+                MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+            )
             .setContentValues(contentValues)
             .build()
 

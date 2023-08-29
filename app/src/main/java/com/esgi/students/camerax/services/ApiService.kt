@@ -6,8 +6,8 @@ import com.esgi.students.camerax.bo.Recipe;
 import retrofit2.http.GET;
 
 public interface ApiService {
-    @GET("/recipe")
+    @GET("/crud/recipe")
     suspend fun getRecipes(): List<Recipe>
-    @GET("/challenge")
+    @GET("/crud/challenge")
     suspend fun getChallenges(): List<Challenge>
 }
