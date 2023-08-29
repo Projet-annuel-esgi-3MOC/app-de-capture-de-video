@@ -6,5 +6,8 @@ class Participation(
     var ipAddress: String = "",
     var podium: Int = -1,
     var steps: List<ParticipationStep> = emptyList(),
+    var recipe: Recipe? = null,
+    var recipeName: String? = null,
+    var recipeImage: String? = null,
 ) {
 }

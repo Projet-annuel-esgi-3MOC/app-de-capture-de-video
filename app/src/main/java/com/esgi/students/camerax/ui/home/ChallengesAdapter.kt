@@ -32,7 +32,7 @@ class ChallengesAdapter(private val onItemClick: (Challenge) -> Unit) :
     inner class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(challenge: Challenge) {
             itemView.findViewById<TextView>(R.id.recipeName).text = challenge.recipe.name
-            itemView.findViewById<TextView>(R.id.challengeParticipants).text = "0 / ${challenge.maxParticipants}"
+            itemView.findViewById<TextView>(R.id.challengeParticipants).text = "${challenge.participations.size} / ${challenge.maxParticipants}"
 
             val imageView = itemView.findViewById<ImageView>(R.id.recipeImage)
             Glide.with(imageView)
