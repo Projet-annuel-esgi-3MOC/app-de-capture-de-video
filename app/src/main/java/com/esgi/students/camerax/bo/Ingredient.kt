@@ -3,11 +3,6 @@ package com.esgi.students.camerax.bo
 class Ingredient(
     var _id: String = "",
     var name: String = "",
-    var image: Media = Media.placeholder(),
+    var image: Media = Media(),
 ) {
-    companion object {
-        fun placeholder(): Ingredient {
-            return Ingredient();
-        }
-    }
 }

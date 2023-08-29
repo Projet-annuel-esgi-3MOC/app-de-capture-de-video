@@ -1,4 +1,4 @@
-package com.esgi.students.camerax.ui._adapters
+package com.esgi.students.camerax.ui.home
 
 import android.view.LayoutInflater
 import android.view.View

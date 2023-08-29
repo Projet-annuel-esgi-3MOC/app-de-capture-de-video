@@ -16,10 +16,4 @@ class Media(
     var mediaCategories: List<MediaCategory> = emptyList(),
     var accessUrl: String = "",
 ) {
-
-    companion object {
-        fun placeholder(): Media {
-            return Media();
-        }
-    }
 }

@@ -6,14 +6,8 @@ class Recipe(
     var description: String = "",
     var difficulty: String = "",
     var recipeIngredients: List<RecipeIngredient> = emptyList(),
-    var image: Media = Media.placeholder(),
+    var image: Media = Media(),
     var timeToCook: String = "",
     var timeToPrepare: String = ""
 ) {
-
-    companion object {
-        fun placeholder(): Recipe {
-            return Recipe();
-        }
-    }
 }

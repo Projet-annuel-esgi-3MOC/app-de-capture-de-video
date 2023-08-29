@@ -1,25 +1,15 @@
 package com.esgi.students.camerax.ui.home
 
-import android.app.ProgressDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.Volley
-import com.esgi.students.camerax.R
 import com.esgi.students.camerax.bo.Recipe
 import com.esgi.students.camerax.databinding.FragmentHomeBinding
-import com.esgi.students.camerax.ui._adapters.ChallengesAdapter
-import com.esgi.students.camerax.ui._adapters.RecipeAdapter
-import org.json.JSONException
 
 class HomeFragment : Fragment() {
 
