@@ -1,6 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext {
+        nav_version = "2.5.2"
+    }
+
     repositories {
         // Make sure that you have the following two repositories
         google()  // Google's Maven repository
@@ -15,7 +19,10 @@ buildscript {
         // Add the dependency for the Crashlytics Gradle plugin
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9'
 
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
     }
+
 }
 
 

@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_navigation_camera"
-            app:destination="@id/navigation_camera" />
+            app:destination="@id/navigation_camera" >
+        </action>
     </fragment>
 
     <fragment

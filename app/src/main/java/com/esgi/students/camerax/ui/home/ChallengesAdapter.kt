@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.esgi.students.camerax.R
 import com.esgi.students.camerax.bo.Challenge
 
-class ChallengesAdapter() :
+class ChallengesAdapter(private val onItemClick: (Challenge) -> Unit) :
     ListAdapter<Challenge, ChallengesAdapter.ChallengeViewHolder>(ChallengeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChallengeViewHolder {
@@ -28,6 +28,7 @@ class ChallengesAdapter() :
         val challenge = getItem(position)
         holder.bind(challenge)
     }
+
     inner class ChallengeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(challenge: Challenge) {
             itemView.findViewById<TextView>(R.id.recipeName).text = challenge.recipe.name
@@ -41,6 +42,8 @@ class ChallengesAdapter() :
                     RoundedCorners(64)
                 ))
                 .into(imageView)
+
+            itemView.setOnClickListener { onItemClick(challenge) }
         }
     }
 }

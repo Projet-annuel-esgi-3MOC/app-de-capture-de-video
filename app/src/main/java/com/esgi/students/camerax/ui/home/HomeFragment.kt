@@ -1,15 +1,20 @@
 package com.esgi.students.camerax.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.esgi.students.camerax.R
+import com.esgi.students.camerax.bo.Challenge
 import com.esgi.students.camerax.bo.Recipe
 import com.esgi.students.camerax.databinding.FragmentHomeBinding
+import com.esgi.students.camerax.ui.camera.CameraFragmentArgs
 
 class HomeFragment : Fragment() {
 
@@ -43,7 +48,7 @@ class HomeFragment : Fragment() {
 //        }
 
         homeViewModel.recipes.observe(viewLifecycleOwner) { recipes ->
-            adapter.submitList(recipes);
+            adapter.submitList(recipes)
         }
 
         val itemCount = minOf(2, adapter.itemCount) // Maximum 3 items
@@ -62,8 +67,17 @@ class HomeFragment : Fragment() {
             activity, LinearLayoutManager.HORIZONTAL, false
         )
 
-        val challengesAdapter = ChallengesAdapter()
+        val challengesAdapter = ChallengesAdapter {
+                challenge: Challenge ->
+
+                val action = HomeFragmentDirections.actionNavigationHomeToNavigationCamera(
+                    challengeId = challenge._id
+                )
+                findNavController().navigate(action)
+
+        }
         challengesRecyclerView.adapter = challengesAdapter
+
 
         homeViewModel.challenges.observe(viewLifecycleOwner) { challenges ->
             challengesAdapter.submitList(challenges)
@@ -75,5 +89,9 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun onChallengeClick(challenge: Challenge) {
+        Log.i("toto", challenge.toString());
     }
 }

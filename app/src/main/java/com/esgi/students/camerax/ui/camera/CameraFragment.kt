@@ -103,6 +103,17 @@ class CameraFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val args = CameraFragmentArgs.fromBundle(requireArguments())
+        val challengeId = args.challengeId // Retrieve the argument value
+
+        // Display the value using a Toast
+        Toast.makeText(requireContext(), "Challenge ID: $challengeId", Toast.LENGTH_SHORT).show()
+    }
+
+
     private fun takePhoto() {
         // Get a stable reference of the modifiable image capture use case
         val imageCapture = imageCapture ?: return
