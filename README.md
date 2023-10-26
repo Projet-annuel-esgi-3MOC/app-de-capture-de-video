@@ -8,6 +8,11 @@ Application android qui utilise la camera pour sauvegarder des videos et des pho
 * https://github.com/alexeyvasilyev/rtsp-client-android plus recent et sans lag
 * https://github.com/bluenviron/mediamtx Serveur qui fait tout
 
+- Expérience avec les couches système/transport OTT : MP4, TS, HLS, DASH, CMAF
+- Connaissance des standards vidéo : H.264/MPEG-4 AVC, HEVC
+- Connaissance des normes audio et de sous-titres OTT Expérience avec DRM (par exemple Fairplay, PlayReady, Vin large)
+
+
 Commandes utiles
 ---
 
